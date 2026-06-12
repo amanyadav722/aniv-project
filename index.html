@@ -1,0 +1,851 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy 1 Month Anniversary ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffdde1, #fcb69f);
+
+            background-size: 400% 400%;
+
+            animation: gradientMove 12s ease infinite;
+
+            color: white;
+
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            /* padding:30px; */
+        }
+
+        h1 {
+            font-size: clamp(2rem, 8vw, 4rem);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: clamp(1.3rem, 5vw, 2.5rem);
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            padding: 0 10px;
+        }
+
+        .btn {
+            margin-top: 25px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            background: white;
+            color: #ff4f81;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        #musicBtn {
+            position: fixed;
+
+            top: 15px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            z-index: 1000;
+
+            padding: 12px 22px;
+
+            border: none;
+            border-radius: 50px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            color: #ff4f81;
+
+            font-weight: bold;
+
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+
+            backdrop-filter: blur(10px);
+
+            transition: 0.3s;
+        }
+
+        #musicBtn:hover {
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        #topBtn {
+            position: fixed;
+            bottom: calc(25px + env(safe-area-inset-bottom));
+            right: 16px;
+
+            width: 60px;
+            height: 60px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.95);
+            color: #ff4f81;
+
+            font-size: 26px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            z-index: 999999;
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            visibility: hidden;
+
+            transition: all 0.3s ease;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+        }
+
+        #topBtn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        #topBtn:hover {
+            transform: scale(1.1);
+        }
+
+        .carousel {
+            width: 95%;
+            max-width: 800px;
+            height: min(60vh, 550px);
+            position: relative;
+            margin: 25px auto;
+            overflow: hidden;
+        }
+
+        .slides {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+
+            border-radius: 25px;
+
+            background: white;
+            padding: 10px;
+
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+
+            display: none;
+
+            transform: rotate(-2deg);
+        }
+
+        .slide.active {
+            display: block;
+            animation:
+                flyIn 1s ease,
+                floating 4s ease-in-out infinite 1s;
+        }
+
+        @keyframes flyIn {
+            0% {
+                opacity: 0;
+
+                transform: translateY(80px) scale(0.8) rotate(-10deg);
+            }
+
+            100% {
+                opacity: 1;
+
+                transform: translateY(0) scale(1) rotate(0deg);
+            }
+        }
+
+        @keyframes flyIn {
+            0% {
+                opacity: 0;
+
+                transform: translateY(80px) scale(0.8) rotate(-10deg);
+            }
+
+            100% {
+                opacity: 1;
+
+                transform: translateY(0) scale(1) rotate(0deg);
+            }
+        }
+
+        .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: -70px;
+        }
+
+        .next {
+            right: -70px;
+        }
+
+        .slider-container {
+            margin-top: 30px;
+        }
+
+        input[type="range"] {
+            width: 350px;
+        }
+
+        #loveMessage {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .question-buttons {
+            position: relative;
+            height: 220px;
+            width: 500px;
+            margin-top: 30px;
+        }
+
+        .yesBtn,
+        .noBtn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            position: absolute;
+        }
+
+        .yesBtn {
+            left: 100px;
+            background: #fff;
+            color: #ff4f81;
+        }
+
+        .noBtn {
+            left: 280px;
+            background: #222;
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .success {
+            font-size: 2rem;
+            margin-top: 30px;
+            animation: pop 0.8s ease;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            white-space: nowrap;
+
+            border-right: 3px solid white;
+
+            animation: fadeIn 2s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatHeart {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-120vh);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .heart {
+            position: fixed;
+            bottom: -20px;
+            font-size: 24px;
+            animation: floatUp 5s linear forwards;
+        }
+
+        @keyframes floatUp {
+            to {
+                transform: translateY(-120vh);
+                opacity: 0;
+            }
+        }
+
+        #photoCounter {
+            margin-top: 15px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .counter {
+            background: rgba(1, 255, 64, 0.15);
+
+            padding: 15px 25px;
+
+            border-radius: 20px;
+
+            margin: 10px;
+
+            backdrop-filter: blur(10px);
+
+            min-width: 220px;
+        }
+
+        .highlight {
+            color: #fff9c4;
+            font-weight: bold;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+
+            text-shadow:
+                0 0 10px rgba(255, 255, 255, 0.8),
+                0 0 20px rgba(255, 182, 193, 0.8),
+                0 0 40px rgba(255, 105, 180, 0.7);
+
+            animation:
+                titleEntrance 2s ease forwards,
+                glow 3s ease-in-out infinite alternate;
+
+            opacity: 0;
+        }
+
+        .hero-subtitle {
+            opacity: 0;
+
+            animation: slideUp 1.5s ease forwards;
+
+            animation-delay: 1.2s;
+        }
+
+        .hero-names {
+            opacity: 0;
+
+            animation:
+                slideUp 1.5s ease forwards,
+                heartbeat 1.8s infinite;
+
+            animation-delay: 2s;
+        }
+
+        @keyframes titleEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(-120px) scale(0.4) rotate(-8deg);
+            }
+
+            70% {
+                opacity: 1;
+                transform: translateY(15px) scale(1.1) rotate(2deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow:
+                    0 0 10px #fff,
+                    0 0 20px pink,
+                    0 0 30px hotpink;
+            }
+
+            to {
+                text-shadow:
+                    0 0 20px #fff,
+                    0 0 40px pink,
+                    0 0 60px hotpink;
+            }
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.08);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+            75% {
+                transform: scale(1.08);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .carousel {
+                height: 50vh;
+                width: 100%;
+            }
+
+            .nav {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+
+            .prev {
+                left: 5px;
+            }
+
+            .next {
+                right: 5px;
+            }
+
+            input[type="range"] {
+                width: 90%;
+            }
+
+            .yesBtn,
+            .noBtn {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+
+            .counter {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- PAGE 1 -->
+
+    <section id="welcome">
+        <h1 class="hero-title">❤️ Happy 1 Month Anniversary ❤️</h1>
+        <h2 class="hero-subtitle">❤️ TO MY WIFE, MY LOVE ❤️</h2>
+        <h2 class="hero-names">(AMAN & AARATI)</h2>
+
+        ```
+        <p>
+            One month ago my life became brighter, happier and infinitely more
+            beautiful because of you.
+        </p>
+
+        <button class="btn" onclick="
+          document
+            .getElementById('journey')
+            .scrollIntoView({ behavior: 'smooth' })
+        ">
+            Continue ❤️
+        </button>
+        ```
+    </section>
+
+    <!-- PAGE 2 -->
+
+    <section id="journey">
+        ```
+        <h2>Our Journey Together ✨</h2>
+
+        <p>
+            Every picture tells a story. Every memory reminds me how lucky I am to
+            have you.
+        </p>
+
+        <audio id="bgMusic" loop>
+            <source src="janiye.mp3" type="audio/mpeg" />
+        </audio>
+
+        <button id="musicBtn">🎵 Play Our Song</button>
+
+        <div class="carousel">
+            <div id="photoCounter">❤️ Memory 1 of 12 ❤️</div>
+
+            <button class="nav prev">❮</button>
+
+            <div class="slides">
+                <img src="pic_011.jpeg" class="slide" />
+                <img src="pic_012.jpeg" class="slide" />
+                <img src="pic_001.jpeg" class="slide active" />
+                <img src="pic_002.jpeg" class="slide" />
+                <img src="pic_003.jpeg" class="slide" />
+                <img src="pic_004.jpeg" class="slide" />
+                <img src="pic_009.jpeg" class="slide" />
+                <img src="pic_005.jpeg" class="slide" />
+                <img src="pic_006.jpeg" class="slide" />
+                <img src="pic_007.jpeg" class="slide" />
+                <img src="pic_008.jpeg" class="slide" />
+                <img src="pic_010.jpeg" class="slide" />
+            </div>
+
+            <button class="nav next">❯</button>
+        </div>
+
+        <br /><br />
+
+        <h2>How Much Do You Love Me? 😘</h2>
+
+        <div class="slider-container">
+            <input type="range" id="loveSlider" min="0" max="100" value="50" />
+
+            <div id="loveMessage">Could be better 😏</div>
+        </div>
+
+        <br /><br /><br />
+
+        <h2>
+            Do You Think We Should Celebrate Many More Anniversaries Together? ❤️
+        </h2>
+
+        <div class="question-buttons">
+            <button class="yesBtn" onclick="celebrate()">YES ❤️</button>
+
+            <button class="noBtn" id="noBtn">NO 😅</button>
+        </div>
+
+        <div id="celebrationMessage" class="hidden">
+            <div class="success">
+                🎉 Correct Answer !!! 🎉
+                <br /><br />
+                I love you more than words can ever explain ❤️
+            </div>
+
+            <button class="btn" onclick="
+            document
+              .getElementById('final')
+              .scrollIntoView({ behavior: 'smooth' })
+          ">
+                One More Thing ❤️
+            </button>
+        </div>
+        ```
+    </section>
+
+    <!-- PAGE 3 -->
+
+    <section id="final">
+        ```
+        <h2>❤️ Our Time Together ❤️</h2>
+
+        <div class="counter" id="days"></div>
+        <div class="counter" id="hours"></div>
+        <div class="counter" id="minutes"></div>
+        <div class="counter" id="seconds"></div>
+
+        <br />
+
+        <p class="highlight">
+            And somehow I still get excited every time I see your name (wifey❤️) pop
+            up on my phone ❤️
+        </p>
+        ```
+
+        <div id="secretHeart">💖</div>
+    </section>
+
+    <button id="topBtn" onclick="scrollToTop()">⬆️</button>
+
+    <script>
+        // CHANGE THIS DATE
+        const anniversaryDate = new Date("2026-05-14T00:00:00");
+
+        const slider = document.getElementById("loveSlider");
+        const loveMessage = document.getElementById("loveMessage");
+
+        slider.addEventListener("input", () => {
+            let value = slider.value;
+
+            if (value <= 10) {
+                loveMessage.innerHTML = "Suspicious 🤨";
+            } else if (value <= 50) {
+                loveMessage.innerHTML = "Could be better 😏";
+            } else if (value <= 90) {
+                loveMessage.innerHTML = "Now we're talking ❤️";
+            } else {
+                loveMessage.innerHTML = "Perfect. I knew it 😘";
+            }
+        });
+
+        slider.addEventListener("change", () => {
+            let current = Number(slider.value);
+
+            const interval = setInterval(() => {
+                current++;
+
+                slider.value = current;
+
+                if (current >= 100) {
+                    loveMessage.innerHTML = "Perfect. I knew it 😘";
+                    clearInterval(interval);
+                }
+            }, 15);
+        });
+
+        const noBtn = document.getElementById("noBtn");
+
+        noBtn.addEventListener("mouseover", () => {
+            const x = Math.random() * 350;
+            const y = Math.random() * 150;
+
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        });
+
+        function celebrate() {
+            document
+                .getElementById("celebrationMessage")
+                .classList.remove("hidden");
+
+            for (let i = 0; i < 40; i++) {
+                let heart = document.createElement("div");
+
+                heart.classList.add("heart");
+                heart.innerHTML = Math.random() > 0.5 ? "❤️" : "🎉";
+
+                heart.style.left = Math.random() * 100 + "vw";
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+        }
+
+        // background music control
+        const music = document.getElementById("bgMusic");
+        const musicBtn = document.getElementById("musicBtn");
+
+        musicBtn.addEventListener("click", () => {
+            if (music.paused) {
+                music.play();
+                musicBtn.innerHTML = "⏸ Pause Music";
+            } else {
+                music.pause();
+                musicBtn.innerHTML = "🎵 Play Our Song";
+            }
+        });
+
+        const slides = document.querySelectorAll(".slide");
+
+        let currentSlide = 0;
+
+        document.querySelector(".next").onclick = () => {
+            currentSlide++;
+
+            if (currentSlide >= slides.length) currentSlide = 0;
+
+            showSlide(currentSlide);
+        };
+
+        document.querySelector(".prev").onclick = () => {
+            currentSlide--;
+
+            if (currentSlide < 0) currentSlide = slides.length - 1;
+
+            showSlide(currentSlide);
+        };
+
+        setInterval(() => {
+            currentSlide++;
+
+            if (currentSlide >= slides.length) currentSlide = 0;
+
+            showSlide(currentSlide);
+        }, 4000);
+
+        function updateCounter() {
+            const now = new Date();
+
+            const diff = now - anniversaryDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+
+            const minutes = Math.floor(diff / (1000 * 60));
+
+            const seconds = Math.floor(diff / 1000);
+
+            document.getElementById("days").innerHTML = days + " Days";
+
+            document.getElementById("hours").innerHTML = hours + " Hours";
+
+            document.getElementById("minutes").innerHTML = minutes + " Minutes";
+
+            document.getElementById("seconds").innerHTML = seconds + " Seconds";
+        }
+
+        const counter = document.getElementById("photoCounter");
+
+        function showSlide(index) {
+            slides.forEach((slide) => slide.classList.remove("active"));
+
+            slides[index].classList.add("active");
+
+            counter.innerHTML = `❤️ Memory ${index + 1} of ${slides.length} ❤️`;
+        }
+
+        const topBtn = document.getElementById("topBtn");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 500) {
+                topBtn.classList.add("show");
+            } else {
+                topBtn.classList.remove("show");
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        }
+
+        setInterval(() => {
+            const heart = document.createElement("div");
+
+            heart.innerHTML = "❤️";
+
+            heart.style.position = "fixed";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.bottom = "-20px";
+            heart.style.fontSize = 20 + Math.random() * 30 + "px";
+            heart.style.opacity = 0.6;
+
+            heart.style.animation = "floatHeart 8s linear forwards";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }, 500);
+
+        setInterval(updateCounter, 1000);
+        updateCounter();
+    </script>
+</body>
+
+</html>
