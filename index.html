@@ -1,851 +1,1112 @@
 <!doctype html>
-
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy 1 Month Anniversary ❤️</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Segoe UI", sans-serif;
+      :root {
+        --font-sans: "Poppins", "Segoe UI", sans-serif;
+        --font-marker: "Permanent Marker", cursive;
+        --bg1: #0a0920;
+        --bg2: #1b1442;
+        --bg3: #ff9fb7;
+        --text: #ffffff;
+        --accent: #ff5d8f;
+        --card: rgba(255, 255, 255, 0.12);
+        --card-border: rgba(255, 255, 255, 0.18);
+        --shadow: rgba(0, 0, 0, 0.24);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: var(--font-sans);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        background: radial-gradient(
+          circle at top left,
+          #ef1cda 0%,
+          #23d823 40%,
+          #d3f113 100%
+        );
+        color: var(--text);
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            circle at top right,
+            rgba(255, 93, 143, 0.14),
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at bottom left,
+            rgba(99, 243, 255, 0.1),
+            transparent 18%
+          );
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      #topNav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1080;
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        padding: 16px 20px;
+        backdrop-filter: blur(18px);
+        background: rgba(7, 6, 26, 0.9);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      #topNav a {
+        color: var(--text);
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        transition:
+          transform 0.25s ease,
+          background 0.25s ease;
+      }
+
+      #topNav a:hover,
+      #topNav a.active {
+        background: rgba(255, 255, 255, 0.12);
+        transform: translateY(-1px);
+      }
+
+      #musicBtn {
+        position: fixed;
+        top: 70px;
+        right: 20px;
+        z-index: 1110;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.96);
+        color: #ff3f78;
+        font-weight: 800;
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(12px);
+        cursor: pointer;
+        transition: transform 0.25s ease;
+      }
+
+      #musicBtn:hover {
+        transform: scale(1.02);
+      }
+
+      section {
+        min-height: 100vh;
+        padding: 140px 24px 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+      }
+
+      section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0.18;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(255, 255, 255, 0.08),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(255, 255, 255, 0.06),
+            transparent 22%
+          );
+      }
+
+      #welcome {
+        background: radial-gradient(
+          circle at top left,
+          #ff6c96 0%,
+          #6121a5 45%,
+          #fc294c 100%
+        );
+      }
+
+      #journey {
+        background: linear-gradient(
+          180deg,
+          #8beba8 0%,
+          #a1529c 45%,
+          #efe232 100%
+        );
+      }
+
+      #final {
+        background: linear-gradient(
+          180deg,
+          #ffd3db 0%,
+          #ffb0b9 45%,
+          #f44360 100%
+        );
+        color: #2d113f;
+      }
+
+      .panel {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 980px);
+        padding: 36px;
+        border-radius: 34px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 36px 90px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(20px);
+      }
+
+      .hero-title {
+        font-family: var(--font-marker);
+        font-size: clamp(3rem, 8vw, 5.2rem);
+        line-height: 1.02;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        text-align: center;
+        margin-bottom: 18px;
+        text-shadow:
+          0 0 10px rgba(255, 255, 255, 0.8),
+          0 0 20px rgba(255, 182, 193, 0.8),
+          0 0 40px rgba(255, 105, 180, 0.7),
+          0 18px 45px rgba(0, 0, 0, 0.28);
+        animation:
+          titleEntrance 2s ease forwards,
+          flyLoop 4s ease-in-out 2s infinite,
+          glow 3s ease-in-out 2s infinite alternate;
+        opacity: 0;
+      }
+
+      .hero-copy {
+        font-size: clamp(1rem, 2.2vw, 1.25rem);
+        line-height: 1.8;
+        letter-spacing: 0.01em;
+        margin: 0 auto 18px;
+        max-width: 760px;
+        text-shadow:
+          0 0 8px rgba(255, 255, 255, 0.6),
+          0 0 15px rgba(255, 182, 193, 0.6),
+          0 0 25px rgba(255, 105, 180, 0.5);
+        animation:
+          slideUp 1.5s ease forwards,
+          flyLoop 4.4s ease-in-out 1.5s infinite,
+          glow 3s ease-in-out 1.5s infinite alternate;
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+
+      .hero-subtitle {
+        font-weight: 700;
+        font-size: clamp(1.2rem, 3vw, 1.8rem);
+        text-align: center;
+        margin: 0 auto 18px;
+        max-width: 760px;
+        text-shadow:
+          0 0 8px rgba(255, 255, 255, 0.6),
+          0 0 15px rgba(255, 182, 193, 0.6),
+          0 0 25px rgba(255, 105, 180, 0.5);
+        animation:
+          slideUp 1.5s ease forwards,
+          flyLoop 4s ease-in-out 1.5s infinite,
+          glow 3s ease-in-out 1.5s infinite alternate;
+        animation-delay: 0.4s;
+        opacity: 0;
+      }
+
+      .hero-names {
+        color: #ffe6f4;
+        font-size: clamp(1rem, 2.2vw, 1.25rem);
+        line-height: 1.8;
+        letter-spacing: 0.01em;
+        text-align: center;
+        margin: 0 auto 18px;
+        max-width: 760px;
+        text-shadow:
+          0 0 8px rgba(255, 255, 255, 0.6),
+          0 0 15px rgba(255, 182, 193, 0.6),
+          0 0 25px rgba(255, 105, 180, 0.5);
+        animation:
+          slideUp 1.5s ease forwards,
+          flyLoop 4.4s ease-in-out 1.5s infinite,
+          glow 3s ease-in-out 1.5s infinite alternate,
+          heartbeat 1.8s infinite;
+        animation-delay: 0.6s;
+        opacity: 0;
+      }
+
+      .panel p {
+        font-size: clamp(1rem, 2.2vw, 1.25rem);
+        line-height: 1.8;
+        letter-spacing: 0.01em;
+        margin: 0 auto 18px;
+        max-width: 760px;
+      }
+
+      .btn {
+        background: linear-gradient(135deg, #ffffff, #ffe0f0);
+        color: #db1665;
+        padding: 16px 34px;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 22px 48px rgba(219, 22, 101, 0.18);
+        font-weight: 800;
+        transition:
+          transform 0.25s ease,
+          filter 0.25s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px) scale(1.02);
+        filter: brightness(1.02);
+      }
+
+      .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 860px;
+        height: 460px;
+        margin: 32px auto;
+        border-radius: 32px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.24);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.02)
+        );
+      }
+
+      .carousel::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(
+          180deg,
+          transparent 0%,
+          rgba(0, 0, 0, 0.2) 75%
+        );
+      }
+
+      .slides {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        opacity: 0;
+        transform: scale(0.98);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+        background: #04040b;
+      }
+
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .slide.active {
+        display: block;
+        opacity: 1;
+        transform: scale(1);
+        z-index: 1;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .photo-label {
+        position: absolute;
+        top: 22px;
+        left: 22px;
+        z-index: 2;
+        padding: 10px 16px;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border-radius: 999px;
+        font-size: 0.95rem;
+        letter-spacing: 0.02em;
+      }
+
+      .nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+        cursor: pointer;
+        z-index: 2;
+        transition:
+          transform 0.24s ease,
+          background 0.24s ease;
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+
+      .nav:hover {
+        transform: translateY(-50%) scale(1.04);
+        background: rgba(255, 255, 255, 1);
+      }
+
+      .prev {
+        left: 20px;
+      }
+
+      .next {
+        right: 20px;
+      }
+
+      .slider-container {
+        width: min(800px, 100%);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      input[type="range"] {
+        width: 100%;
+        accent-color: #ff5d8f;
+        appearance: none;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.16);
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #ff5d8f;
+        border: 3px solid rgba(255, 255, 255, 0.92);
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(255, 93, 143, 0.3);
+      }
+
+      input[type="range"]::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #ff5d8f;
+        border: 3px solid rgba(255, 255, 255, 0.92);
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(255, 93, 143, 0.3);
+      }
+
+      #loveMessage {
+        color: #fff9e6;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+
+      .question-buttons {
+        position: relative;
+        width: min(540px, 100%);
+        height: 220px;
+        margin: 0 auto;
+      }
+
+      .yesBtn,
+      .noBtn {
+        position: absolute;
+        border: none;
+        border-radius: 999px;
+        padding: 16px 32px;
+        cursor: pointer;
+        font-weight: 800;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+        transition:
+          transform 0.22s ease,
+          filter 0.22s ease,
+          left 0.3s ease,
+          top 0.3s ease;
+      }
+
+      .yesBtn {
+        left: 12%;
+        top: 28px;
+        background: #ffffff;
+        color: #ff4f81;
+      }
+
+      .noBtn {
+        right: 12%;
+        top: 110px;
+        background: #181b2f;
+        color: #f6f0ff;
+      }
+
+      .yesBtn:hover,
+      .noBtn:hover {
+        transform: scale(1.04);
+        filter: brightness(1.04);
+      }
+
+      .success {
+        margin-top: 32px;
+        font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+        color: #fff7d6;
+        line-height: 1.4;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+        gap: 18px;
+        margin-top: 26px;
+        width: min(760px, 100%);
+      }
+
+      .counter {
+        padding: 24px;
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.12);
+        text-align: center;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .highlight {
+        color: #38114b;
+        margin-top: 18px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      #secretHeart {
+        margin: 24px auto 0;
+        font-size: 4rem;
+        animation: heartbeat 1.6s infinite ease-in-out;
+        width: max-content;
+        color: #ff5d8f;
+        text-shadow: 0 20px 48px rgba(255, 93, 143, 0.24);
+      }
+
+      .heart {
+        position: fixed;
+        pointer-events: none;
+        user-select: none;
+        color: #ff5d8f;
+        text-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+        will-change: transform, opacity;
+        font-family: inherit;
+      }
+
+      @keyframes titleEntrance {
+        0% {
+          opacity: 0;
+          transform: translateY(-120px) scale(0.4) rotate(-8deg);
+        }
+        70% {
+          opacity: 1;
+          transform: translateY(15px) scale(1.1) rotate(2deg);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1) rotate(0);
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes flyLoop {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-20px) scale(1.02);
+        }
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow:
+            0 0 10px rgba(255, 255, 255, 0.8),
+            0 0 20px rgba(255, 182, 193, 0.8),
+            0 0 40px rgba(255, 105, 180, 0.7),
+            0 18px 45px rgba(0, 0, 0, 0.28);
+        }
+        to {
+          text-shadow:
+            0 0 20px rgba(255, 255, 255, 0.95),
+            0 0 40px rgba(255, 182, 193, 0.95),
+            0 0 70px rgba(255, 105, 180, 0.85),
+            0 18px 45px rgba(0, 0, 0, 0.28);
+        }
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        25% {
+          transform: scale(1.08);
+        }
+        50% {
+          transform: scale(1.15);
+        }
+        75% {
+          transform: scale(1.08);
+        }
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 0.9;
         }
 
-        html,
-        body {
-            overflow-x: hidden;
-            width: 100%;
+        50% {
+          opacity: 0.75;
         }
 
-        body {
-            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffdde1, #fcb69f);
+        100% {
+          transform: translateY(-120vh) rotate(20deg) scale(1.2);
+          opacity: 0;
+        }
+      }
 
-            background-size: 400% 400%;
-
-            animation: gradientMove 12s ease infinite;
-
-            color: white;
-
-            overflow-x: hidden;
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
         }
 
-        @keyframes gradientMove {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+        25%,
+        75% {
+          transform: scale(1.12);
         }
 
+        50% {
+          transform: scale(1.24);
+        }
+      }
+
+      #topBtn {
+        position: fixed;
+        bottom: calc(25px + env(safe-area-inset-bottom));
+        right: 16px;
+        width: 60px;
+        height: 60px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.95);
+        color: #ff5d8f;
+        font-size: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 999999;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      #topBtn.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+      }
+
+      #topBtn:hover {
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 900px) {
         section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            min-height: 100vh;
-            padding: 40px 20px;
-            /* padding:30px; */
-        }
-
-        h1 {
-            font-size: clamp(2rem, 8vw, 4rem);
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            font-size: clamp(1.3rem, 5vw, 2.5rem);
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            padding: 0 10px;
-        }
-
-        .btn {
-            margin-top: 25px;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            background: white;
-            color: #ff4f81;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            transform: scale(1.1);
-        }
-
-        #musicBtn {
-            position: fixed;
-
-            top: 15px;
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            z-index: 1000;
-
-            padding: 12px 22px;
-
-            border: none;
-            border-radius: 50px;
-
-            background: rgba(255, 255, 255, 0.95);
-
-            color: #ff4f81;
-
-            font-weight: bold;
-
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-
-            backdrop-filter: blur(10px);
-
-            transition: 0.3s;
-        }
-
-        #musicBtn:hover {
-            transform: translateX(-50%) scale(1.05);
-        }
-
-        #topBtn {
-            position: fixed;
-            bottom: calc(25px + env(safe-area-inset-bottom));
-            right: 16px;
-
-            width: 60px;
-            height: 60px;
-
-            border: none;
-            border-radius: 50%;
-
-            background: rgba(255, 255, 255, 0.95);
-            color: #ff4f81;
-
-            font-size: 26px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            cursor: pointer;
-
-            z-index: 999999;
-
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-
-            opacity: 0;
-            transform: translateY(20px) scale(0.9);
-            visibility: hidden;
-
-            transition: all 0.3s ease;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.08);
-            }
-        }
-
-        #topBtn.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0) scale(1);
-        }
-
-        #topBtn:hover {
-            transform: scale(1.1);
+          padding: 130px 18px 64px;
         }
 
         .carousel {
-            width: 95%;
-            max-width: 800px;
-            height: min(60vh, 550px);
-            position: relative;
-            margin: 25px auto;
-            overflow: hidden;
+          min-height: 360px;
         }
 
-        .slides {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .slide {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-
-            border-radius: 25px;
-
-            background: white;
-            padding: 10px;
-
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-
-            display: none;
-
-            transform: rotate(-2deg);
-        }
-
-        .slide.active {
-            display: block;
-            animation:
-                flyIn 1s ease,
-                floating 4s ease-in-out infinite 1s;
-        }
-
-        @keyframes flyIn {
-            0% {
-                opacity: 0;
-
-                transform: translateY(80px) scale(0.8) rotate(-10deg);
-            }
-
-            100% {
-                opacity: 1;
-
-                transform: translateY(0) scale(1) rotate(0deg);
-            }
-        }
-
-        @keyframes flyIn {
-            0% {
-                opacity: 0;
-
-                transform: translateY(80px) scale(0.8) rotate(-10deg);
-            }
-
-            100% {
-                opacity: 1;
-
-                transform: translateY(0) scale(1) rotate(0deg);
-            }
-        }
-
-        .nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .prev {
-            left: -70px;
-        }
-
-        .next {
-            right: -70px;
-        }
-
-        .slider-container {
-            margin-top: 30px;
-        }
-
-        input[type="range"] {
-            width: 350px;
-        }
-
-        #loveMessage {
-            margin-top: 20px;
-            font-size: 1.5rem;
-            font-weight: bold;
+        .stats-grid {
+          grid-template-columns: 1fr;
         }
 
         .question-buttons {
-            position: relative;
-            height: 220px;
-            width: 500px;
-            margin-top: 30px;
+          height: 260px;
+        }
+
+        .yesBtn {
+          left: 6%;
+          top: 22px;
+        }
+
+        .noBtn {
+          right: 6%;
+          top: 130px;
+        }
+      }
+
+      @media (max-width: 680px) {
+        #topNav {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+          padding: 12px 14px;
+        }
+
+        #musicBtn {
+          top: 76px;
+          right: 14px;
+        }
+
+        section {
+          padding: 120px 14px 64px;
+        }
+
+        .panel {
+          padding: 24px;
+        }
+
+        .nav {
+          width: 44px;
+          height: 44px;
+        }
+
+        .prev {
+          left: 12px;
+        }
+
+        .next {
+          right: 12px;
         }
 
         .yesBtn,
         .noBtn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1.2rem;
-            position: absolute;
+          font-size: 1rem;
+          padding: 14px 26px;
         }
-
-        .yesBtn {
-            left: 100px;
-            background: #fff;
-            color: #ff4f81;
-        }
-
-        .noBtn {
-            left: 280px;
-            background: #222;
-            color: white;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .success {
-            font-size: 2rem;
-            margin-top: 30px;
-            animation: pop 0.8s ease;
-        }
-
-        .typewriter {
-            overflow: hidden;
-            white-space: nowrap;
-
-            border-right: 3px solid white;
-
-            animation: fadeIn 2s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes floatHeart {
-            from {
-                transform: translateY(0);
-            }
-
-            to {
-                transform: translateY(-120vh);
-                opacity: 0;
-            }
-        }
-
-        @keyframes pop {
-            from {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .heart {
-            position: fixed;
-            bottom: -20px;
-            font-size: 24px;
-            animation: floatUp 5s linear forwards;
-        }
-
-        @keyframes floatUp {
-            to {
-                transform: translateY(-120vh);
-                opacity: 0;
-            }
-        }
-
-        #photoCounter {
-            margin-top: 15px;
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        .counter {
-            background: rgba(1, 255, 64, 0.15);
-
-            padding: 15px 25px;
-
-            border-radius: 20px;
-
-            margin: 10px;
-
-            backdrop-filter: blur(10px);
-
-            min-width: 220px;
-        }
-
-        .highlight {
-            color: #fff9c4;
-            font-weight: bold;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 800;
-
-            text-shadow:
-                0 0 10px rgba(255, 255, 255, 0.8),
-                0 0 20px rgba(255, 182, 193, 0.8),
-                0 0 40px rgba(255, 105, 180, 0.7);
-
-            animation:
-                titleEntrance 2s ease forwards,
-                glow 3s ease-in-out infinite alternate;
-
-            opacity: 0;
-        }
-
-        .hero-subtitle {
-            opacity: 0;
-
-            animation: slideUp 1.5s ease forwards;
-
-            animation-delay: 1.2s;
-        }
-
-        .hero-names {
-            opacity: 0;
-
-            animation:
-                slideUp 1.5s ease forwards,
-                heartbeat 1.8s infinite;
-
-            animation-delay: 2s;
-        }
-
-        @keyframes titleEntrance {
-            0% {
-                opacity: 0;
-                transform: translateY(-120px) scale(0.4) rotate(-8deg);
-            }
-
-            70% {
-                opacity: 1;
-                transform: translateY(15px) scale(1.1) rotate(2deg);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1) rotate(0);
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow:
-                    0 0 10px #fff,
-                    0 0 20px pink,
-                    0 0 30px hotpink;
-            }
-
-            to {
-                text-shadow:
-                    0 0 20px #fff,
-                    0 0 40px pink,
-                    0 0 60px hotpink;
-            }
-        }
-
-        @keyframes heartbeat {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            25% {
-                transform: scale(1.08);
-            }
-
-            50% {
-                transform: scale(1.15);
-            }
-
-            75% {
-                transform: scale(1.08);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .carousel {
-                height: 50vh;
-                width: 100%;
-            }
-
-            .nav {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-
-            .prev {
-                left: 5px;
-            }
-
-            .next {
-                right: 5px;
-            }
-
-            input[type="range"] {
-                width: 90%;
-            }
-
-            .yesBtn,
-            .noBtn {
-                font-size: 1rem;
-                padding: 12px 20px;
-            }
-
-            .counter {
-                width: 90%;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <!-- PAGE 1 -->
+  <body>
+    <nav id="topNav">
+      <a href="#welcome">Welcome</a>
+      <a href="#journey">Journey</a>
+      <a href="#final">Countdown</a>
+    </nav>
+
+    <button id="musicBtn">💗 Play Our Song</button>
 
     <section id="welcome">
-        <h1 class="hero-title">❤️ Happy 1 Month Anniversary ❤️</h1>
-        <h2 class="hero-subtitle">❤️ TO MY WIFE, MY LOVE ❤️</h2>
-        <h2 class="hero-names">(AMAN & AARATI)</h2>
-
-        ```
-        <p>
-            One month ago my life became brighter, happier and infinitely more
-            beautiful because of you.
+      <div class="panel">
+        <h1 class="hero-title">Happy One Month Anniversary ❤️</h1>
+        <p class="hero-copy">
+          One month ago my life became brighter, happier and infinitely more
+          beautiful because of you. Every moment with you is a spark of joy and
+          I want to celebrate us forever.
         </p>
-
-        <button class="btn" onclick="
-          document
-            .getElementById('journey')
-            .scrollIntoView({ behavior: 'smooth' })
-        ">
-            Continue ❤️
+        <h2 class="hero-subtitle">TO MY BAIL, MY LOVE ❤️</h2>
+        <h2 class="hero-names">(AMAN &amp; AARATI)</h2>
+        <button
+          class="btn"
+          onclick="
+            document
+              .getElementById('journey')
+              .scrollIntoView({ behavior: 'smooth' })
+          "
+        >
+          Continue 💌
         </button>
-        ```
+      </div>
     </section>
 
-    <!-- PAGE 2 -->
-
     <section id="journey">
-        ```
-        <h2>Our Journey Together ✨</h2>
-
+      <div class="panel">
+        <h2 class="hero-subtitle">Our Journey Together ❤️</h2>
         <p>
-            Every picture tells a story. Every memory reminds me how lucky I am to
-            have you.
+          Every picture tells a story. Every memory reminds me how lucky I am to
+          have you. Let's relive the moments, feel the love and keep making new
+          memories.
         </p>
 
         <audio id="bgMusic" loop>
-            <source src="janiye.mp3" type="audio/mpeg" />
+          <source src="janiye.mp3" type="audio/mpeg" />
         </audio>
 
-        <button id="musicBtn">🎵 Play Our Song</button>
-
         <div class="carousel">
-            <div id="photoCounter">❤️ Memory 1 of 12 ❤️</div>
-
-            <button class="nav prev">❮</button>
-
-            <div class="slides">
-                <img src="pic_011.jpeg" class="slide" />
-                <img src="pic_012.jpeg" class="slide" />
-                <img src="pic_001.jpeg" class="slide active" />
-                <img src="pic_002.jpeg" class="slide" />
-                <img src="pic_003.jpeg" class="slide" />
-                <img src="pic_004.jpeg" class="slide" />
-                <img src="pic_009.jpeg" class="slide" />
-                <img src="pic_005.jpeg" class="slide" />
-                <img src="pic_006.jpeg" class="slide" />
-                <img src="pic_007.jpeg" class="slide" />
-                <img src="pic_008.jpeg" class="slide" />
-                <img src="pic_010.jpeg" class="slide" />
+          <span class="photo-label" id="photoCounter"
+            >❤️ Memory 1 of 12 ❤️</span
+          >
+          <!-- <button class="nav prev">❮</button> -->
+          <button class="nav prev"><</button>
+          <div class="slides">
+            <div class="slide active">
+              <img src="pic_001.jpeg" alt="Memory 1" />
             </div>
-
-            <button class="nav next">❯</button>
+            <div class="slide"><img src="pic_002.jpeg" alt="Memory 2" /></div>
+            <div class="slide"><img src="pic_003.jpeg" alt="Memory 3" /></div>
+            <div class="slide"><img src="pic_004.jpeg" alt="Memory 4" /></div>
+            <div class="slide"><img src="pic_005.jpeg" alt="Memory 5" /></div>
+            <div class="slide"><img src="pic_006.jpeg" alt="Memory 6" /></div>
+            <div class="slide"><img src="pic_007.jpeg" alt="Memory 7" /></div>
+            <div class="slide"><img src="pic_008.jpeg" alt="Memory 8" /></div>
+            <div class="slide"><img src="pic_009.jpeg" alt="Memory 9" /></div>
+            <div class="slide"><img src="pic_010.jpeg" alt="Memory 10" /></div>
+            <div class="slide"><img src="pic_011.jpeg" alt="Memory 11" /></div>
+            <div class="slide"><img src="pic_012.jpeg" alt="Memory 12" /></div>
+          </div>
+          <button class="nav next">></button>
         </div>
 
-        <br /><br />
+        <br />
+        <br />
+        <br />
+        <br />
 
-        <h2>How Much Do You Love Me? 😘</h2>
-
+        <h2 class="hero-subtitle">How Much Do You Love Me?? ❤️💖</h2>
+        <br />
         <div class="slider-container">
-            <input type="range" id="loveSlider" min="0" max="100" value="50" />
-
-            <div id="loveMessage">Could be better 😏</div>
+          <input type="range" id="loveSlider" min="0" max="100" value="50" />
+          <div id="loveMessage">Could be better 💓</div>
         </div>
 
-        <br /><br /><br />
+        <br />
+        <br />
+        <br />
+        <br />
 
-        <h2>
-            Ready To Celebrate Many More Anniversaries Together? ❤️
+        <h2 class="hero-subtitle">
+          Ready to Celebrate Many More Anniversaries Together?? 😉😉
         </h2>
-
         <div class="question-buttons">
-            <button class="yesBtn" onclick="celebrate()">YES ❤️</button>
-
-            <button class="noBtn" id="noBtn">NO 😅</button>
+          <button class="yesBtn" onclick="celebrate()">YES ❤️</button>
+          <button class="noBtn" id="noBtn">NO 💔</button>
         </div>
 
         <div id="celebrationMessage" class="hidden">
-            <div class="success">
-                🎉 Correct Answer !!! 🎉
-                <br /><br />
-                I love you more than words can ever explain ❤️
-            </div>
-
-            <button class="btn" onclick="
-            document
-              .getElementById('final')
-              .scrollIntoView({ behavior: 'smooth' })
-          ">
-                One More Thing ❤️
-            </button>
+          <div class="hero-names">
+            ❤️ Correct Answer !!! 💝<br />I love you more than words can ever
+            explain ❤️
+          </div>
+          <br />
+          <button
+            class="btn"
+            onclick="
+              document
+                .getElementById('final')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            One More Thing 💌
+          </button>
         </div>
-        ```
+      </div>
     </section>
-
-    <!-- PAGE 3 -->
 
     <section id="final">
-        ```
-        <h2>❤️ Our Time Together ❤️</h2>
-
-        <div class="counter" id="days"></div>
-        <div class="counter" id="hours"></div>
-        <div class="counter" id="minutes"></div>
-        <div class="counter" id="seconds"></div>
-
+      <div class="panel">
+        <h2 class="hero-subtitle">💗 Our Time Together 💗</h2>
+        <div class="stats-grid">
+          <div class="counter" id="days"></div>
+          <div class="counter" id="hours"></div>
+          <div class="counter" id="minutes"></div>
+          <div class="counter" id="seconds"></div>
+        </div>
+        <br />
+        <p class="highlight">
+          And I get excited every time I see your name (wifey 💖) pop up on my
+          phone.
+        </p>
+        <br />
+        <br />
+        <h1 class="hero-title">❤️ I love you ❤️</h1>
         <br />
 
-        <p class="highlight">
-            And somehow I still get excited every time I see your name (wifey❤️) pop
-            up on my phone ❤️
-        </p>
-        ```
-
-        <div id="secretHeart">💖</div>
+        <div id="secretHeart">❤️</div>
+      </div>
     </section>
 
-    <button id="topBtn" onclick="scrollToTop()">⬆️</button>
+    <button id="topBtn" onclick="scrollToTop()">⮝</button>
 
     <script>
-        // CHANGE THIS DATE
-        const anniversaryDate = new Date("2026-05-14T00:00:00");
+      const anniversaryDate = new Date("2026-05-14T00:00:00");
+      const slider = document.getElementById("loveSlider");
+      const loveMessage = document.getElementById("loveMessage");
+      const noBtn = document.getElementById("noBtn");
+      const music = document.getElementById("bgMusic");
+      const musicBtn = document.getElementById("musicBtn");
+      const slides = document.querySelectorAll(".slide");
+      const counter = document.getElementById("photoCounter");
+      const topBtn = document.getElementById("topBtn");
+      const sectionLinks = document.querySelectorAll("#topNav a");
+      const sections = document.querySelectorAll("section");
 
-        const slider = document.getElementById("loveSlider");
-        const loveMessage = document.getElementById("loveMessage");
+      function setLoveMessage(value) {
+        const num = Number(value);
+        if (num <= 10) return (loveMessage.textContent = "Suspicious 😅");
+        if (num <= 50) return (loveMessage.textContent = "Could be better 💓");
+        if (num <= 90)
+          return (loveMessage.textContent = "Now we're talking 💕");
+        loveMessage.textContent = "Perfect. I knew it ❤️";
+      }
 
-        slider.addEventListener("input", () => {
-            let value = slider.value;
+      slider.addEventListener("input", () => setLoveMessage(slider.value));
+      slider.addEventListener("change", () => {
+        let current = Number(slider.value);
+        const timer = setInterval(() => {
+          if (current >= 100) return clearInterval(timer);
+          current += 1;
+          slider.value = current;
+          setLoveMessage(current);
+        }, 15);
+      });
 
-            if (value <= 10) {
-                loveMessage.innerHTML = "Suspicious 🤨";
-            } else if (value <= 50) {
-                loveMessage.innerHTML = "Could be better 😏";
-            } else if (value <= 90) {
-                loveMessage.innerHTML = "Now we're talking ❤️";
-            } else {
-                loveMessage.innerHTML = "Perfect. I knew it 😘";
-            }
-        });
+      // Make NO button run away from cursor/touch
+      function runAwayFromPoint(cursorX, cursorY) {
+        const box = document.querySelector(".question-buttons");
+        const boxRect = box.getBoundingClientRect();
+        const btnRect = noBtn.getBoundingClientRect();
 
-        slider.addEventListener("change", () => {
-            let current = Number(slider.value);
+        // Calculate center of button
+        const btnCenterX = btnRect.left - boxRect.left + btnRect.width / 2;
+        const btnCenterY = btnRect.top - boxRect.top + btnRect.height / 2;
 
-            const interval = setInterval(() => {
-                current++;
+        // Calculate direction away from cursor
+        const dx = btnCenterX - cursorX;
+        const dy = btnCenterY - cursorY;
+        const distance = Math.sqrt(dx * dx + dy * dy) || 1;
 
-                slider.value = current;
+        // Normalize and scale
+        const speed = 120;
+        const newX = Math.max(
+          0,
+          Math.min(
+            box.offsetWidth - noBtn.offsetWidth - 16,
+            btnCenterX + (dx / distance) * speed - noBtn.offsetWidth / 2,
+          ),
+        );
+        const newY = Math.max(
+          0,
+          Math.min(
+            box.offsetHeight - noBtn.offsetHeight - 16,
+            btnCenterY + (dy / distance) * speed - noBtn.offsetHeight / 2,
+          ),
+        );
 
-                if (current >= 100) {
-                    loveMessage.innerHTML = "Perfect. I knew it 😘";
-                    clearInterval(interval);
-                }
-            }, 15);
-        });
+        noBtn.style.left = `${newX}px`;
+        noBtn.style.top = `${newY}px`;
+      }
 
-        const noBtn = document.getElementById("noBtn");
+      // Mouse movement tracking
+      document.addEventListener("mousemove", (e) => {
+        const btnRect = noBtn.getBoundingClientRect();
+        const distance = Math.sqrt(
+          Math.pow(e.clientX - (btnRect.left + btnRect.width / 2), 2) +
+            Math.pow(e.clientY - (btnRect.top + btnRect.height / 2), 2),
+        );
 
-        noBtn.addEventListener("mouseover", () => {
-            const x = Math.random() * 350;
-            const y = Math.random() * 150;
-
-            noBtn.style.left = x + "px";
-            noBtn.style.top = y + "px";
-        });
-
-        function celebrate() {
-            document
-                .getElementById("celebrationMessage")
-                .classList.remove("hidden");
-
-            for (let i = 0; i < 40; i++) {
-                let heart = document.createElement("div");
-
-                heart.classList.add("heart");
-                heart.innerHTML = Math.random() > 0.5 ? "❤️" : "🎉";
-
-                heart.style.left = Math.random() * 100 + "vw";
-
-                document.body.appendChild(heart);
-
-                setTimeout(() => {
-                    heart.remove();
-                }, 5000);
-            }
+        // If cursor gets within 150px, run away
+        if (distance < 150) {
+          const box = document.querySelector(".question-buttons");
+          const boxRect = box.getBoundingClientRect();
+          runAwayFromPoint(e.clientX - boxRect.left, e.clientY - boxRect.top);
         }
+      });
 
-        // background music control
-        const music = document.getElementById("bgMusic");
-        const musicBtn = document.getElementById("musicBtn");
+      // Touch support for mobile
+      document.addEventListener("touchmove", (e) => {
+        if (e.touches.length === 0) return;
 
-        musicBtn.addEventListener("click", () => {
-            if (music.paused) {
-                music.play();
-                musicBtn.innerHTML = "⏸ Pause Music";
-            } else {
-                music.pause();
-                musicBtn.innerHTML = "🎵 Play Our Song";
-            }
-        });
+        const touch = e.touches[0];
+        const btnRect = noBtn.getBoundingClientRect();
+        const distance = Math.sqrt(
+          Math.pow(touch.clientX - (btnRect.left + btnRect.width / 2), 2) +
+            Math.pow(touch.clientY - (btnRect.top + btnRect.height / 2), 2),
+        );
 
-        const slides = document.querySelectorAll(".slide");
-
-        let currentSlide = 0;
-
-        document.querySelector(".next").onclick = () => {
-            currentSlide++;
-
-            if (currentSlide >= slides.length) currentSlide = 0;
-
-            showSlide(currentSlide);
-        };
-
-        document.querySelector(".prev").onclick = () => {
-            currentSlide--;
-
-            if (currentSlide < 0) currentSlide = slides.length - 1;
-
-            showSlide(currentSlide);
-        };
-
-        setInterval(() => {
-            currentSlide++;
-
-            if (currentSlide >= slides.length) currentSlide = 0;
-
-            showSlide(currentSlide);
-        }, 4000);
-
-        function updateCounter() {
-            const now = new Date();
-
-            const diff = now - anniversaryDate;
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-
-            const minutes = Math.floor(diff / (1000 * 60));
-
-            const seconds = Math.floor(diff / 1000);
-
-            document.getElementById("days").innerHTML = days + " Days";
-
-            document.getElementById("hours").innerHTML = hours + " Hours";
-
-            document.getElementById("minutes").innerHTML = minutes + " Minutes";
-
-            document.getElementById("seconds").innerHTML = seconds + " Seconds";
+        // If touch gets within 120px, run away
+        if (distance < 120) {
+          const box = document.querySelector(".question-buttons");
+          const boxRect = box.getBoundingClientRect();
+          runAwayFromPoint(
+            touch.clientX - boxRect.left,
+            touch.clientY - boxRect.top,
+          );
         }
+      });
 
-        const counter = document.getElementById("photoCounter");
-
-        function showSlide(index) {
-            slides.forEach((slide) => slide.classList.remove("active"));
-
-            slides[index].classList.add("active");
-
-            counter.innerHTML = `❤️ Memory ${index + 1} of ${slides.length} ❤️`;
+      function celebrate() {
+        document
+          .getElementById("celebrationMessage")
+          .classList.remove("hidden");
+        for (let i = 0; i < 28; i++) {
+          const heart = document.createElement("div");
+          heart.className = "heart";
+          heart.textContent = Math.random() > 0.5 ? "❤️" : "💖";
+          heart.style.left = `${Math.random() * 100}vw`;
+          heart.style.fontSize = `${18 + Math.random() * 28}px`;
+          heart.style.animation = `floatUp 5s ease-in forwards`;
+          document.body.appendChild(heart);
+          setTimeout(() => heart.remove(), 5200);
         }
+      }
 
-        const topBtn = document.getElementById("topBtn");
-
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 500) {
-                topBtn.classList.add("show");
-            } else {
-                topBtn.classList.remove("show");
-            }
-        });
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            });
+      musicBtn.addEventListener("click", () => {
+        if (music.paused) {
+          music.play();
+          musicBtn.textContent = "💗 Pause Music";
+        } else {
+          music.pause();
+          musicBtn.textContent = "💗 Play Our Song";
         }
+      });
 
-        setInterval(() => {
-            const heart = document.createElement("div");
+      let currentSlide = 0;
+      const nextBtn = document.querySelector(".next");
+      const prevBtn = document.querySelector(".prev");
 
-            heart.innerHTML = "❤️";
+      function showSlide(index) {
+        slides.forEach((slide) => slide.classList.remove("active"));
+        slides[index].classList.add("active");
+        counter.textContent = `❤️ Memory ${index + 1} of ${slides.length} ❤️`;
+      }
 
-            heart.style.position = "fixed";
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.bottom = "-20px";
-            heart.style.fontSize = 20 + Math.random() * 30 + "px";
-            heart.style.opacity = 0.6;
+      nextBtn.addEventListener("click", () => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      });
 
-            heart.style.animation = "floatHeart 8s linear forwards";
+      prevBtn.addEventListener("click", () => {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+      });
 
-            document.body.appendChild(heart);
+      setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      }, 4000);
 
-            setTimeout(() => {
-                heart.remove();
-            }, 8000);
-        }, 500);
+      function updateCounter() {
+        const now = new Date();
+        const diff = Math.abs(now - anniversaryDate);
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        document.getElementById("days").textContent = `${days} Days`;
+        document.getElementById("hours").textContent = `${hours} Hours`;
+        document.getElementById("minutes").textContent = `${minutes} Minutes`;
+        document.getElementById("seconds").textContent = `${seconds} Seconds`;
+      }
 
-        setInterval(updateCounter, 1000);
-        updateCounter();
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const link = document.querySelector(
+              `#topNav a[href='#${entry.target.id}']`,
+            );
+            if (link)
+              link.classList.toggle(
+                "active",
+                entry.isIntersecting && entry.intersectionRatio > 0.45,
+              );
+          });
+        },
+        { threshold: [0.45] },
+      );
+
+      sections.forEach((section) => observer.observe(section));
+
+      window.addEventListener("scroll", () => {
+        topBtn.classList.toggle("show", window.scrollY > 500);
+      });
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.textContent = Math.random() > 0.5 ? "❤️" : "💗";
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.bottom = "-24px";
+        heart.style.fontSize = `${18 + Math.random() * 28}px`;
+        heart.style.opacity = "0.8";
+        heart.style.animation = "floatUp 8s linear forwards";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 8200);
+      }, 700);
+
+      setLoveMessage(slider.value);
+      showSlide(currentSlide);
+      updateCounter();
+      setInterval(updateCounter, 1000);
     </script>
-</body>
-
+  </body>
 </html>
