@@ -715,16 +715,31 @@
           flex-wrap: wrap;
           justify-content: center;
           gap: 10px;
-          padding: 12px 14px;
+          padding: 16px 14px 20px;
+        }
+
+        #topNav a {
+          padding: 8px 14px;
+          font-size: 0.95rem;
         }
 
         #musicBtn {
-          top: 76px;
+          top: 118px;
           right: 14px;
+          min-width: 170px;
+          padding: 12px 20px;
         }
 
         section {
           padding: 120px 14px 64px;
+          overflow: visible;
+        }
+
+        .hero-title {
+          font-size: clamp(2.4rem, 12vw, 4.2rem);
+          line-height: 1.08;
+          word-break: break-word;
+          white-space: normal;
         }
 
         .panel {
@@ -759,6 +774,7 @@
       <a href="#journey">Journey</a>
       <a href="#final">Countdown</a>
     </nav>
+    <br />
 
     <button id="musicBtn">💗 Play Our Song</button>
 
@@ -891,7 +907,8 @@
       </div>
     </section>
 
-    <button id="topBtn" onclick="scrollToTop()">⮝</button>
+    <button id="topBtn" onclick="scrollToTop()">⬆️</button>
+    <!-- <button id="topBtn" onclick="scrollToTop()">⮝</button> -->
 
     <script>
       const anniversaryDate = new Date("2026-05-14T00:00:00");
